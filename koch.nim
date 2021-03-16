@@ -324,6 +324,8 @@ proc boot(args: string) =
         extraOption.add " -d:nimBoostrapCsources0_19_0"
         addLib()
       elif version.startsWith "Nim Compiler Version 0.20.0": addLib()
+    else:
+      extraOption.add " --gc:arc"
 
     # in order to use less memory, we split the build into two steps:
     # --compileOnly produces a $project.json file and does not run GCC/Clang.
